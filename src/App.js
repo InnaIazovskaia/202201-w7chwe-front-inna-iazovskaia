@@ -1,10 +1,13 @@
-import RegisterForm from "./components/RegisterForm/RegisterForm";
+import { Route, Routes } from "react-router-dom";
+import RegisterPage from "./pages/RegisterPage.js/RegisterPage";
 
 function App() {
   return (
-    <>
-      <RegisterForm />
-    </>
+    <main>
+      <Routes>
+        <Route path="/" element={<RegisterPage />}></Route>
+      </Routes>
+    </main>
   );
 }
 
