@@ -34,10 +34,9 @@ export const userLoginThunk = (user) => async (dispatch) => {
   );
 
   if (response.ok) {
-    const token = await response.json();
-    const { username } = await jwtDecode(token.token);
-    localStorage.setItem("UserToken", token.token);
-
-    dispatch(userLoginAction({ username, token: token.token }));
+    const { token } = await response.json();
+    const { id, username } = await jwtDecode(token);
+    localStorage.setItem("token", token);
+    dispatch(userLoginAction({ id, username, token: token }));
   }
 };
