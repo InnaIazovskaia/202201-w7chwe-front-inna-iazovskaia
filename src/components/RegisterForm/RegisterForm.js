@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { userRegisterThunk } from "../../redux/thunks/usersThunks";
 
@@ -10,6 +10,7 @@ const RegisterForm = () => {
     password: "",
   };
 
+  const form = useRef(null);
   const [formData, setFormData] = useState(initialData);
 
   const handleChange = (event) => {
@@ -19,6 +20,11 @@ const RegisterForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(userRegisterThunk(formData));
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setFormData(initialData);
   };
 
   return (
@@ -29,6 +35,7 @@ const RegisterForm = () => {
           onSubmit={onSubmit}
           autoComplete="off"
           noValidate
+          ref={form}
         >
           <div className="mb-3">
             <label htmlFor="inputName" className="form-label">
