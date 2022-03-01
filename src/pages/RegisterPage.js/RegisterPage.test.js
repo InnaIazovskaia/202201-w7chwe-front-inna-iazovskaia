@@ -1,6 +1,6 @@
 import RegisterPage from "./RegisterPage";
 import renderWithProviders from "../../setupTests";
-import { getByRole, queryAllByRole, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 describe("Given a RegisterPage component", () => {
   describe("When it's invoked", () => {
