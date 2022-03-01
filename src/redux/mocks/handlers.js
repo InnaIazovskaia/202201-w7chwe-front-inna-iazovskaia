@@ -4,12 +4,12 @@ export const handlers = [
   rest.post(
     `${process.env.REACT_APP_API_SOCIAL}users/register`,
     (req, res, ctx) => {
-      res(
-        ctx.status(201),
+      return res(
+        ctx.status(200),
         ctx.json({
+          id: "53",
           name: "Tom",
-          username: "superTom",
-          password: "superTom",
+          token: "superTom",
         })
       );
     }
